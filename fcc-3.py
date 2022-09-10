@@ -1,3 +1,5 @@
+import math
+
 class Category:
   def __init__(self, category):
     self.category = category
@@ -122,7 +124,7 @@ def create_spend_chart(categories = []):
   # get total withdrawls and divide by each category withdrawls
   # round to nearest tens
   for withdrawal in category_withdrawals:
-    percent = int(round(withdrawal / total_withdrawals, 1) * 100)
+    percent = int(math.floor(withdrawal / total_withdrawals * 10) * 10)
     category_percentages.append(percent)
 
   for i in range(10, -1, -1):
